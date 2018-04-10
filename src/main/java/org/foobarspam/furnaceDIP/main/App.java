@@ -1,4 +1,4 @@
-package org.foobarspam.furnaceDIP.Main;
+package org.foobarspam.furnaceDIP.main;
 
 import org.foobarspam.furnaceDIP.hardware.GasHeater;
 import org.foobarspam.furnaceDIP.hardware.Regulator;
