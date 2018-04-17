@@ -8,10 +8,6 @@ import org.foobarspam.furnaceDIP.interfaces.Thermometer;
 import org.foobarspam.furnaceDIP.otherstuff.Jedi;
 import org.foobarspam.furnaceDIP.types.RoomTemperature;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
