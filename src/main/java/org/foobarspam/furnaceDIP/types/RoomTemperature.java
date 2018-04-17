@@ -3,9 +3,13 @@ package org.foobarspam.furnaceDIP.types;
 public class RoomTemperature {
 	
 	private double temperature = 0;
+	private static RoomTemperature instance = new RoomTemperature();
 	
-	public RoomTemperature(double temperature){
-		this.temperature = temperature;
+	private RoomTemperature() {
+	}
+
+	public static RoomTemperature getInstance() {
+		return instance;
 	}
 
 	public double getTemperature() {
@@ -16,7 +20,7 @@ public class RoomTemperature {
 		this.temperature = temperature;
 	}
 	
-	public void incrementTemperature(double increment){
+	public void incrementTemperature(double increment) {
 		this.temperature += increment;
 	}
 
