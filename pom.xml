@@ -1,30 +1,137 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.foobarspam</groupId>
-  <artifactId>furnaceDIP</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <artifactId>furnacedip</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>furnaceDIP</name>
-  <url>http://maven.apache.org</url>
+  <name>furnacedip</name>
+  <url>https://github.com/dfleta/furnace-DIP-kata</url>
 
   <properties>
+    <compiler-plugin.version>3.8.1</compiler-plugin.version>
+    <maven.compiler.parameters>true</maven.compiler.parameters>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- dependencies -->
+    <junit.version>4.13.2</junit.version>
+    <!-- plugins -->
+    <compiler.version>3.10.1</compiler.version>
+    <deploy.version>3.0.0-M2</deploy.version>
+    <install.version>3.0.0-M1</install.version>
+    <jar.version>3.2.2</jar.version>
+    <report.version>3.2.2</report.version>
+    <resources.version>3.2.0</resources.version>
+    <site.version>3.11.0</site.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>[${junit.version},)</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-	    <groupId>org.assertj</groupId>
-	    <artifactId>assertj-core</artifactId>
-	    <version>3.6.2</version>
-	</dependency>
   </dependencies>
+
+  <build>
+    <!--he quitado el elemento pluginmanagement porque sino falla el plugin enforcer -->
+    <!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.1.0</version>
+      </plugin>
+      <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>${resources.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${compiler.version}</version>
+      </plugin>
+      <!-- surefire necesario para Junit 5-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${jar.version}</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>org.foobarspam.furnacedip.main.App</mainClass>
+            </manifest>
+            <manifestEntries>
+              <url>${project.url}</url>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>${install.version}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>${deploy.version}</version>
+      </plugin>
+      <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>${site.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>${report.version}</version>
+      </plugin>
+      <!-- plugin para establecer la version mínima de maven -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>enforce-maven</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireMavenVersion>
+                  <version>3.2.5</version>
+                </requireMavenVersion>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- plugin para controlar la actualizacion de las versiones -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>2.10.0</version>
+        <configuration>
+          <allowIncrementalUpdates>true</allowIncrementalUpdates>
+          <allowMinorUpdates>true</allowMinorUpdates>
+          <allowMajorUpdates>false</allowMajorUpdates>
+          <allowSnapshots>false</allowSnapshots>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
 </project>
