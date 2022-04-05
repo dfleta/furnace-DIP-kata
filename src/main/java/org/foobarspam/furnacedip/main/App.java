@@ -1,12 +1,12 @@
-package org.foobarspam.furnaceDIP.main;
+package org.foobarspam.furnacedip.main;
 
-import org.foobarspam.furnaceDIP.hardware.GasHeater;
-import org.foobarspam.furnaceDIP.hardware.Regulator;
-import org.foobarspam.furnaceDIP.hardware.RemoteCommandSensor;
-import org.foobarspam.furnaceDIP.interfaces.Heater;
-import org.foobarspam.furnaceDIP.interfaces.Thermometer;
-import org.foobarspam.furnaceDIP.otherstuff.Jedi;
-import org.foobarspam.furnaceDIP.types.RoomTemperature;
+import org.foobarspam.furnacedip.hardware.GasHeater;
+import org.foobarspam.furnacedip.hardware.Regulator;
+import org.foobarspam.furnacedip.hardware.RemoteCommandSensor;
+import org.foobarspam.furnacedip.interfaces.Heater;
+import org.foobarspam.furnacedip.interfaces.Thermometer;
+import org.foobarspam.furnacedip.otherstuff.Jedi;
+import org.foobarspam.furnacedip.types.RoomTemperature;
 
 public class App 
 {
