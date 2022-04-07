@@ -4,5 +4,5 @@ import org.foobarspam.furnacedip.types.RoomTemperature;
 
 public interface Thermometer {
 	
-	public double read(RoomTemperature temperature);
+	double read(RoomTemperature temperature);
 }
