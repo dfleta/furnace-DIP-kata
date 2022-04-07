@@ -30,5 +30,8 @@ public class App
         System.out.println( "\nArrancando a Yoda: " );
         regulator.regulate(thermometer, yoda, minTemp, maxTemp, temperature);
         yoda.speak();
+
+        Heater luke = new Jedi();
+        // luke.speak(); // ups, The method speak() is undefined for the type HeaterJava
     }
 }
