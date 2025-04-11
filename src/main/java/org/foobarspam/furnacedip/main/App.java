@@ -12,8 +12,8 @@ public class App
 {
     public static void main( String[] args )
     {
-    	final double minTemp = 15.0;
-        final double maxTemp = 21.0;
+    	final double MIN_TEMP = 15.0;
+        final double MAX_TEMP = 21.0;
         
         RoomTemperature temperature = RoomTemperature.getInstance();
         temperature.setTemperature(17);
@@ -23,15 +23,15 @@ public class App
         Regulator regulator = new Regulator();
         
         System.out.println( "Arrancando..." );
-        regulator.regulate(thermometer, heater, minTemp, maxTemp, temperature);
+        regulator.regulate(thermometer, heater, MIN_TEMP, MAX_TEMP, temperature);
         
         temperature = RoomTemperature.getInstance();
         Jedi yoda = new Jedi();
         System.out.println( "\nArrancando a Yoda: " );
-        regulator.regulate(thermometer, yoda, minTemp, maxTemp, temperature);
+        regulator.regulate(thermometer, yoda, MIN_TEMP, MAX_TEMP, temperature);
         yoda.speak();
 
         Heater luke = new Jedi();
-        // luke.speak(); // ups, The method speak() is undefined for the type HeaterJava
+        ((Jedi)luke).speak(); // ups, The method speak() is undefined for the type HeaterJava
     }
 }
