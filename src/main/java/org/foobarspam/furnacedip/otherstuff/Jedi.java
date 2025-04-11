@@ -5,6 +5,12 @@ import org.foobarspam.furnacedip.interfaces.Heater;
 import org.foobarspam.furnacedip.types.RoomTemperature;
 
 public class Jedi implements Heater {
+
+	private String name;
+
+	public Jedi(String name) {
+		this.name = name;
+	}
 	
 	public void engage(RoomTemperature temperature){
 		 temperature.incrementTemperature(this.toucheLightSable());
@@ -31,6 +37,7 @@ public class Jedi implements Heater {
     		+ "\t   /'.-c   \n"
     		+ "\t   |  /T   \n"
     		+ "\t  _)_/LI   \n"
-    		+ "\nDo or do not. There is no try ");
+    		+ "\nDo or do not. There is no try "
+			+ "\n" + this.name);
 	}
 }

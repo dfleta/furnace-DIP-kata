@@ -26,12 +26,12 @@ public class App
         regulator.regulate(thermometer, heater, MIN_TEMP, MAX_TEMP, temperature);
         
         temperature = RoomTemperature.getInstance();
-        Jedi yoda = new Jedi();
+        Jedi yoda = new Jedi("Yoda");
         System.out.println( "\nArrancando a Yoda: " );
         regulator.regulate(thermometer, yoda, MIN_TEMP, MAX_TEMP, temperature);
         yoda.speak();
 
-        Heater luke = new Jedi();
-        ((Jedi)luke).speak(); // ups, The method speak() is undefined for the type HeaterJava
+        Heater grogu = new Jedi("Grogu");
+        ((Jedi)grogu).speak(); // ups, The method speak() is undefined for the type HeaterJava
     }
 }
