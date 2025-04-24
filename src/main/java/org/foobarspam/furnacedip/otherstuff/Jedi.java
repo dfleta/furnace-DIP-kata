@@ -38,6 +38,6 @@ public class Jedi implements Heater {
     		+ "\t   |  /T   \n"
     		+ "\t  _)_/LI   \n"
     		+ "\nDo or do not. There is no try "
-			+ "\n" + this.name);
+			+ "\n-\s" + this.name);
 	}
 }
