@@ -1,12 +1,14 @@
 package org.foobarspam.furnacedip.hardware;
 
 import org.foobarspam.furnacedip.interfaces.Heater;
+import org.foobarspam.furnacedip.interfaces.Regulator;
 import org.foobarspam.furnacedip.interfaces.Thermometer;
 import org.foobarspam.furnacedip.types.RegulatorDisplayCodes;
 import org.foobarspam.furnacedip.types.RoomTemperature;
 
-public class Regulator {
+public class Controller implements Regulator {
 	
+	@Override
 	public void regulate(Thermometer t, Heater h, double minTemp, double maxTemp, RoomTemperature temperature) {
 		RegulatorDisplayCodes code;
 		while (t.read(temperature) < maxTemp) {

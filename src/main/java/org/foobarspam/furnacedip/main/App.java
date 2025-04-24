@@ -1,7 +1,7 @@
 package org.foobarspam.furnacedip.main;
 
 import org.foobarspam.furnacedip.hardware.GasHeater;
-import org.foobarspam.furnacedip.hardware.Regulator;
+import org.foobarspam.furnacedip.hardware.Controller;
 import org.foobarspam.furnacedip.hardware.RemoteCommandSensor;
 import org.foobarspam.furnacedip.interfaces.Heater;
 import org.foobarspam.furnacedip.interfaces.Thermometer;
@@ -20,7 +20,7 @@ public class App
         Heater heater = new GasHeater();
         Thermometer thermometer = new RemoteCommandSensor();
         
-        Regulator regulator = new Regulator();
+        Controller regulator = new Controller();
         
         System.out.println( "Arrancando..." );
         regulator.regulate(thermometer, heater, MIN_TEMP, MAX_TEMP, temperature);
