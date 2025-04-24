@@ -1,18 +1,20 @@
 package org.foobarspam.furnacedip.types;
 
+import java.util.Optional;
+
 public class RoomTemperature {
 	
 	private double temperature = 0;
-	private static RoomTemperature instance = null;
+	private static Optional<RoomTemperature> instance = Optional.empty();
 	
 	private RoomTemperature() {
 	}
 
 	public static RoomTemperature getInstance() {
-		if (instance == null) {
-			instance = new RoomTemperature();
+		if (instance.isEmpty()) {
+			instance = Optional.of(new RoomTemperature());
 		}
-		return instance;		
+		return instance.get();
 	}
 
 	public double getTemperature() {
